@@ -1,0 +1,11 @@
+local PlaceId = game.PlaceId
+local Scripts = {
+    [5811374318] = "https://raw.githubusercontent.com/NutHub41/Nhamnhi/main/99night",
+    
+}
+
+if Scripts[PlaceId] then
+    loadstring(game:HttpGet(Scripts[PlaceId]))()
+else
+    warn("Không hỗ trợ game này: " .. PlaceId)
+    end
