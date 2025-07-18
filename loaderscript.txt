@@ -1,9 +1,11 @@
-local loader = {
-    game = {
-        ["99Night"] = "https://raw.githubusercontent.com/NutHub41/Nhamnhi/main/99night",
-    }
+local PlaceId = game.PlaceId
+local Scripts = {
+    [126244816328678] = "https://raw.githubusercontent.com/Zuneh3143/Nhamnhi/main/DIG_",
+    
 }
 
-for _, url in pairs(loader.game) do
-    pcall(function() loadstring(game:HttpGet(url))() end)
-end
+if Scripts[PlaceId] then
+    loadstring(game:HttpGet(Scripts[PlaceId]))()
+else
+    warn("Không hỗ trợ game này: " .. PlaceId)
+    end
