@@ -1,16 +1,9 @@
-local Scripts = {
-    "https://raw.githubusercontent.com/Zuneh3143/Nhamnhi/main/Forsaken",
-   
+local loader = {
+    game = {
+        ["Forsaken"] = "https://raw.githubusercontent.com/Zuneh3143/Nhamnhi/main/Forsaken",
+    }
 }
 
-for _, url in ipairs(Scripts) do
-    local success, err = pcall(function()
-        loadstring(game:HttpGet(url))()
-    end)
-    
-    if success then
-        print("[✓] Loaded: " .. url)
-    else
-        warn("[✗] Failed to load: " .. url .. " | Error: " .. tostring(err))
-    end
+for _, url in pairs(loader.game) do
+    pcall(function() loadstring(game:HttpGet(url))() end)
 end
