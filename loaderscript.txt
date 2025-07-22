@@ -1,11 +1,16 @@
-local PlaceId = game.PlaceId
 local Scripts = {
-    [126244816328678] = "https://raw.githubusercontent.com/Zuneh3143/Nhamnhi/main/DIG_",
-    
+    "https://raw.githubusercontent.com/Zuneh3143/Nhamnhi/main/Forsaken",
+   
 }
 
-if Scripts[PlaceId] then
-    loadstring(game:HttpGet(Scripts[PlaceId]))()
-else
-    warn("Không hỗ trợ game này: " .. PlaceId)
+for _, url in ipairs(Scripts) do
+    local success, err = pcall(function()
+        loadstring(game:HttpGet(url))()
+    end)
+    
+    if success then
+        print("[✓] Loaded: " .. url)
+    else
+        warn("[✗] Failed to load: " .. url .. " | Error: " .. tostring(err))
     end
+end
